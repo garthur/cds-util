@@ -1,0 +1,2 @@
+*.pyc
+/cds_util.egg-info/*
