@@ -1,2 +1,4 @@
 *.pyc
+*.nc
+.DS_store
 /cds_util.egg-info/*
