@@ -15,7 +15,8 @@ setup(
         packages = find_packages(),
         entry_points ={
             'console_scripts': [
-                'cds-era5 = cds_util.era5:main'
+                'cds-era5 = cds_util.era5:main',
+                'cds-ncep = cds_util.ncep:main'
             ]
         },
         classifiers =(

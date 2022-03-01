@@ -10,10 +10,10 @@ def slice_gridded_data(
         dates=None,
         area=[90, -180, -90, 180],
         round_area_to_grid=False
-    ) -> function:
+    ):
     '''
     '''
-    # convert longitude to 0,360
+    # convert longitude to [0,360]
     LONGITUDE_CONSTANT = 180
     area[1] = area[1] + LONGITUDE_CONSTANT
     area[3] = area[3] + LONGITUDE_CONSTANT
@@ -45,7 +45,7 @@ def get_ncep(
         dates=None,
         area=[90, -180, -90, 180],
         round_area_to_grid=False,
-        download_flag = False,
+        download_flag=False,
         download_file='./output.nc'
     ) -> xr.Dataset:
     '''Get NCEP/NCAR reanalysis data from NOAA.
@@ -82,7 +82,7 @@ def get_ncep(
         remote_resources
     ))
 
-    merged_data = xr.merge(sliced_datasets)
+    merged_data = xr.concat(sliced_datasets, dim="time")
 
     if download_flag:
         merged_data.to_netcdf(f"{download_file}")
@@ -110,13 +110,18 @@ def parse_args() -> argparse.Namespace:
     )
 
     parser.add_argument(
+        "--round_area",
+        action="store_true"
+    )
+
+    parser.add_argument(
         "--outfile",
         default=None
     )
 
     return parser.parse_args()
 
-def main():
+def main() -> None:
     args = parse_args()
 
     _ = get_ncep(
