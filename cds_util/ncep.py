@@ -11,7 +11,18 @@ def slice_gridded_data(
         area=[90, -180, -90, 180],
         round_area_to_grid=False
     ):
-    '''
+    '''Slice gridded data to specified area and dates.
+
+    Parameters
+    ----------
+    dates: list of strings
+    area: list, default [90,-180,-90, 180]
+        area extent to download [N, W, S, E]
+
+    Returns
+    ----------
+    slice_gridded_data_: Callable
+        gridded data slicer, usable on an xarray.Dataset
     '''
     # convert longitude to [0,360]
     LONGITUDE_CONSTANT = 180
@@ -48,7 +59,7 @@ def get_ncep(
         download_flag=False,
         download_file='./output.nc'
     ) -> xr.Dataset:
-    '''Get NCEP/NCAR reanalysis data from NOAA.
+    '''Get NCEP/NCAR reanalysis data from NOAA's PSL.
 
     National Centers for Environmental Prediction/National Weather Service/NOAA/U.S. Department of Commerce. 
     1994, updated monthly. NCEP/NCAR Global Reanalysis Products, 1948-continuing. 
@@ -58,8 +69,8 @@ def get_ncep(
     ----------
     var: str, default temperature
         name of variable to download. corresponding resource must be added to NCEP_REMOTE_RESOURCES
-    dates: list of strings, default
-    area: list, default [90, 0, -90, 360]
+    dates: list of strings
+    area: list, default [90,-180,-90, 180]
         area extent to download [N, W, S, E]
     round_area_to_grid: True or False, default False
 
