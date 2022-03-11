@@ -18,6 +18,14 @@ National Centers for Environmental Prediction/National Weather Service/NOAA/U.S.
 
 **Example Uses**:
 
-`cds-ncep --var temperature --dates 1996-05-31 2021-09-30 --area 19.11 -65.6 9.83 -58.82 --outfile ./data/lesser_antilles.nc`
+`cds-ncep --var temperature --dates 1996-05-31 2021-09-30 --area 18.81 -90.28 15.56 -85.97 --outfile ./data/caricom_zone_1.nc`
 
-`cds-ncep --var temperature --dates 1996-05-31 2021-09-30 --area 23.73 -85.05 17.13 -65.59 --outfile ./data/greater_antilles.nc`
+`cds-ncep --var temperature --dates 1996-05-31 2021-09-30 --area 24.42 -85.97 18.81 -78.14 --outfile ./data/caricom_zone_2.nc`
+
+`cds-ncep --var temperature --dates 1996-05-31 2021-09-30 --area 27.16 -78.41 17.43 -74.37 --outfile ./data/caricom_zone_3.nc`
+
+`cds-ncep --var temperature --dates 1996-05-31 2021-09-30 --area 23.49 -74.37 17.43 -63.78 --outfile ./data/caricome_zone_4.nc`
+
+`cds-ncep --var temperature --dates 1996-05-31 2021-09-30 --area 19.17 -63.78 12.67 -58.83 --outfile ./data/caricom_zone_5.nc`
+
+`cds-ncep --var temperature --dates 1996-05-31 2021-09-30 --area 12.67 -62.26 5.95 -57.03 --outfile ./data/caricom_zone_6.nc`
